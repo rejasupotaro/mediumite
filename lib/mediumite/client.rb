@@ -23,19 +23,23 @@ module Mediumite
       end
     end
 
-    def request(method, path, data = {}, options = {})
-      agent.call(method, URI::Parser.new.escape(path.to_s), data, options).data.data
+    def request(method, path, data = {})
+      agent.call(method, URI::Parser.new.escape(path.to_s), data).data.data
     end
 
     def user
       @user ||= request(:get, "me")
     end
 
+    def get_publications
+      request(:get, "users/#{user.id}/publications")
+    end
+
     def create_post(post)
       if post.under_publication?
-        agent.call(:post, "publications/#{post.publication_id}/posts", post.to_json)
+        request(:post, "publications/#{post.publication_id}/posts", post.to_json)
       else
-        agent.call(:post, "users/#{user.id}/posts", post.to_json)
+        request(:post, "users/#{user.id}/posts", post.to_json)
       end
     end
   end
