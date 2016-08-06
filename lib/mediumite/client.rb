@@ -6,6 +6,12 @@ module Mediumite
       @options = options
     end
 
+    def inspect
+      inspected = super
+      inspected = inspected.gsub! token, "#{'*'*token.length}" if token
+      inspected
+    end
+
     def token
       @options[:token]
     end

@@ -1,13 +1,18 @@
 require "spec_helper"
 
 describe Mediumite::Client do
-  describe "#token" do
-    let(:instance) do
-      Mediumite::Client.new(token: "token")
+  describe "instantiation" do
+    it "masks token on inspect" do
+      client = Mediumite::Client.new(token: "abcdefghijklmnopqrstuvwxyz")
+      inspected = client.inspect
+      expect(inspected).not_to include("abcdefghijklmnopqrstuvwxyz")
     end
+  end
 
+  describe "#token" do
     it "returns given token" do
-      expect(instance.token).to eq "token"
+      client = Mediumite::Client.new(token: "token")
+      expect(client.token).to eq "token"
     end
   end
 end
