@@ -6,6 +6,14 @@ module Mediumite
       @content = content
     end
 
+    def publication_id
+      @content[:publication_id]
+    end
+
+    def under_publication?
+      !!@content[:publication_id]
+    end
+
     def to_json
       {
         title: @content[:title],

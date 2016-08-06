@@ -1,6 +1,22 @@
 require "spec_helper"
 
 describe Mediumite::Post do
+  describe "#under_publication?" do
+    context "publication_id is not given" do
+      it "returns false" do
+        post = Mediumite::Post.new(title: "title", body: "body")
+        expect(post.under_publication?).to be false
+      end
+    end
+
+    context "publication_id is given" do
+      it "returns true" do
+        post = Mediumite::Post.new(title: "title", body: "body", publication_id: 123)
+        expect(post.under_publication?).to be true
+      end
+    end
+  end
+
   describe "#to_json" do
     context "just given title and body" do
       it "has given title and body" do

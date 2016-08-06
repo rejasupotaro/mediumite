@@ -32,7 +32,11 @@ module Mediumite
     end
 
     def create_post(post)
-      agent.call(:post, "users/#{user.id}/posts", post.to_json)
+      if post.under_publication?
+        agent.call(:post, "publications/#{post.publication_id}/posts", post.to_json)
+      else
+        agent.call(:post, "users/#{user.id}/posts", post.to_json)
+      end
     end
   end
 end
