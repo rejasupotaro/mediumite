@@ -18,11 +18,15 @@ module Mediumite
     end
 
     def request(method, path, data = {}, options = {})
-      agent.call(method, URI::Parser.new.escape(path.to_s), data, options).data
+      agent.call(method, URI::Parser.new.escape(path.to_s), data, options).data.data
     end
 
     def user
-      @user ||= request :get, "me"
+      @user ||= request(:get, "me")
+    end
+
+    def create_post(post)
+      agent.call(:post, "users/#{user.id}/posts", post.to_json)
     end
   end
 end
