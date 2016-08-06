@@ -1,7 +1,5 @@
 require "mediumite/version"
+require "mediumite/client"
 
 module Mediumite
-  def self.hello
-    "hello"
-  end
 end
