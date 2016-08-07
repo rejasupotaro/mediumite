@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Simple wrapper for the Medium API written in Ruby.}
   spec.description   = %q{Simple wrapper for the Medium API written in Ruby.}
   spec.homepage      = "https://github.com/rejasupotaro/mediumite"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
