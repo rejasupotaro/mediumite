@@ -1,4 +1,4 @@
-# Mediumite
+# Mediumite [![CircleCI](https://circleci.com/gh/rejasupotaro/mediumite.svg?style=svg)](https://circleci.com/gh/rejasupotaro/mediumite)
 
 This is simple wrapper for the Medium API written in Ruby.
 For full API documentation, see [Medium/medium-api-docs: Documentation for Medium's OAuth2 API](https://github.com/Medium/medium-api-docs#32-publications)
