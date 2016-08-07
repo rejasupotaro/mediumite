@@ -1,0 +1,21 @@
+## Customize the test machine
+machine:
+
+  # Version of ruby to use
+  ruby:
+    version:
+      2.2.3
+
+## Customize dependencies
+dependencies:
+  pre:
+    - gem install bundler --pre
+
+  override:
+    - bundle install -j4: # note ':' here
+        timeout: 180 # fail if command has no output for 3 minutes
+
+## Customize test commands
+test:
+  override:
+    - bundle exec rspec
