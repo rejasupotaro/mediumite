@@ -8,7 +8,6 @@ Gem::Specification.new do |spec|
   spec.version       = Mediumite::VERSION
   spec.authors       = ["Kentaro Takiguchi"]
   spec.email         = ["takiguchi0817@gmail.com"]
-
   spec.summary       = %q{Simple wrapper for the Medium API written in Ruby.}
   spec.description   = %q{Simple wrapper for the Medium API written in Ruby.}
   spec.homepage      = "https://github.com/rejasupotaro/mediumite"
@@ -18,9 +17,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "sawyer"
+
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "sawyer"
-  spec.add_development_dependency "pry"
 end
