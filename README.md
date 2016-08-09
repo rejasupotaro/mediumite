@@ -90,5 +90,6 @@ You can specify these parameters below.
 | title | string | required | The title of the post. |
 | body | string | required | The body of the post, in a valid, semantic, markdown or HTML fragment. Further markups may be supported in the future. For a full list of accepted HTML tags, see [here](https://medium.com/@katie/a4367010924e). |
 | format | string | optional | The format of the "body" field. There are two valid values, "markdown", and "html". The default is "markdown" |
-| tags | string array | optional | Tags to classify the post. Only the first three will be used. Tags longer than 25 characters will be ignored. |
 | publish_status | string | optional | The status of the post. Valid values are “public”, “draft”, or “unlisted”. The default is “draft”. |
+| tags | string array | optional | Tags to classify the post. Only the first three will be used. Tags longer than 25 characters will be ignored. |
+| publication_id | string | optional | The publication id. The post will associate with the given publication. |
