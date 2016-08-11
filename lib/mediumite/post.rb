@@ -16,7 +16,7 @@ module Mediumite
 
     def to_param
       {
-        title: @content[:title],
+        title: @content[:title] ||= "",
         contentFormat: @content[:format] ||= "markdown",
         content: @content[:body],
         canonicalUrl: @content[:canonical_url],

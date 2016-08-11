@@ -33,7 +33,7 @@ describe Mediumite::Post do
     context "with format" do
       it "overwrites contentFormat" do
         json = JSON.parse(Mediumite::Post.new(format: "html").to_param)
-        expect(json["title"]).to be_nil
+        expect(json["title"]).to eq ""
         expect(json["contentFormat"]).to eq "html"
         expect(json["content"]).to be_nil
         expect(json["canonicalUrl"]).to be_nil
@@ -45,7 +45,7 @@ describe Mediumite::Post do
     context "with canonicalUrl" do
       it "overwrites canonicalUrl" do
         json = JSON.parse(Mediumite::Post.new(canonical_url: "https://github.com").to_param)
-        expect(json["title"]).to be_nil
+        expect(json["title"]).to eq ""
         expect(json["contentFormat"]).to eq "markdown"
         expect(json["content"]).to be_nil
         expect(json["canonicalUrl"]).to eq "https://github.com"
@@ -57,7 +57,7 @@ describe Mediumite::Post do
     context "with tags" do
       it "overwrites tags" do
         json = JSON.parse(Mediumite::Post.new(tags: ["Rails", "Cooking"]).to_param)
-        expect(json["title"]).to be_nil
+        expect(json["title"]).to eq ""
         expect(json["contentFormat"]).to eq "markdown"
         expect(json["content"]).to be_nil
         expect(json["canonicalUrl"]).to be_nil
@@ -69,7 +69,7 @@ describe Mediumite::Post do
     context "with publish_status" do
       it "overwrites publish_status" do
         json = JSON.parse(Mediumite::Post.new(publish_status: "public").to_param)
-        expect(json["title"]).to be_nil
+        expect(json["title"]).to eq ""
         expect(json["contentFormat"]).to eq "markdown"
         expect(json["content"]).to be_nil
         expect(json["canonicalUrl"]).to be_nil
