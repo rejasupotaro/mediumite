@@ -14,7 +14,7 @@ module Mediumite
       !!@content[:publication_id]
     end
 
-    def to_json
+    def to_param
       {
         title: @content[:title],
         contentFormat: @content[:format] ||= "markdown",

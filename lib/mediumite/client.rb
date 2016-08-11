@@ -37,9 +37,9 @@ module Mediumite
 
     def create_post(post)
       if post.under_publication?
-        request(:post, "publications/#{post.publication_id}/posts", post.to_json)
+        request(:post, "publications/#{post.publication_id}/posts", post.to_param)
       else
-        request(:post, "users/#{user.id}/posts", post.to_json)
+        request(:post, "users/#{user.id}/posts", post.to_param)
       end
     end
   end

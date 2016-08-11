@@ -17,10 +17,10 @@ describe Mediumite::Post do
     end
   end
 
-  describe "#to_json" do
+  describe "#to_param" do
     context "just given title and body" do
       it "has given title and body" do
-        json = JSON.parse(Mediumite::Post.new(title: "title", body: "body").to_json)
+        json = JSON.parse(Mediumite::Post.new(title: "title", body: "body").to_param)
         expect(json["title"]).to eq "title"
         expect(json["contentFormat"]).to eq "markdown"
         expect(json["content"]).to eq "body"
@@ -32,7 +32,7 @@ describe Mediumite::Post do
 
     context "with format" do
       it "overwrites contentFormat" do
-        json = JSON.parse(Mediumite::Post.new(format: "html").to_json)
+        json = JSON.parse(Mediumite::Post.new(format: "html").to_param)
         expect(json["title"]).to be_nil
         expect(json["contentFormat"]).to eq "html"
         expect(json["content"]).to be_nil
@@ -44,7 +44,7 @@ describe Mediumite::Post do
 
     context "with canonicalUrl" do
       it "overwrites canonicalUrl" do
-        json = JSON.parse(Mediumite::Post.new(canonical_url: "https://github.com").to_json)
+        json = JSON.parse(Mediumite::Post.new(canonical_url: "https://github.com").to_param)
         expect(json["title"]).to be_nil
         expect(json["contentFormat"]).to eq "markdown"
         expect(json["content"]).to be_nil
@@ -56,7 +56,7 @@ describe Mediumite::Post do
 
     context "with tags" do
       it "overwrites tags" do
-        json = JSON.parse(Mediumite::Post.new(tags: ["Rails", "Cooking"]).to_json)
+        json = JSON.parse(Mediumite::Post.new(tags: ["Rails", "Cooking"]).to_param)
         expect(json["title"]).to be_nil
         expect(json["contentFormat"]).to eq "markdown"
         expect(json["content"]).to be_nil
@@ -68,7 +68,7 @@ describe Mediumite::Post do
 
     context "with publish_status" do
       it "overwrites publish_status" do
-        json = JSON.parse(Mediumite::Post.new(publish_status: "public").to_json)
+        json = JSON.parse(Mediumite::Post.new(publish_status: "public").to_param)
         expect(json["title"]).to be_nil
         expect(json["contentFormat"]).to eq "markdown"
         expect(json["content"]).to be_nil
