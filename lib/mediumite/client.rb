@@ -18,8 +18,8 @@ module Mediumite
 
     def agent
       @agent ||= Sawyer::Agent.new("https://api.medium.com/v1") do |http|
+        http.request :authorization, "Bearer", token
         http.headers[:content_type] = "application/json"
-        http.authorization "Bearer", token
       end
     end
 
