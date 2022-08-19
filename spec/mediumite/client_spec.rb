@@ -23,7 +23,7 @@ describe Mediumite::Client do
         body: "# Test post body",
         publication_id: "publication-id"
       )
-      stub = stubbed_post_create(title: "Test post title", publication_id: "publication-id")
+      stub = stubbed_post_create
 
       response = client.create_post(post)
 
